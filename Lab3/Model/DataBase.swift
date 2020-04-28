@@ -18,6 +18,7 @@ class Plank: Object {
 class Running: Object {
     @objc dynamic var lastDistance = 0
     @objc dynamic var curDistance = 0
+    @objc dynamic var max = 0
 }
 
 class Body: Object {

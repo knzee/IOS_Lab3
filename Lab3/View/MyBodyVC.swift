@@ -8,7 +8,12 @@
 
 import UIKit
 
-class MyBodyVC: UIViewController {
+protocol MyBodyDelegate: NSObjectProtocol {
+    func setUpBody(weight: Int, height: Int, lastPlankTime: Int, plankProgress: Int, lastRunningDistance: Int, runningProgress: Int)
+    func updateBodyParameters(weight: Int, height: Int)
+}
+
+class MyBodyVC: UIViewController, MyBodyDelegate {
     
     private enum Const {
         static let title = "Train progress"
@@ -24,20 +29,17 @@ class MyBodyVC: UIViewController {
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var heightEditButton: UIButton!
     
-    
-    
     @IBOutlet weak var lastPlankLabel: UILabel!
     @IBOutlet weak var plankProgressLabel: UILabel!
     @IBOutlet weak var plankProgressImage: UIImageView!
-    
     
     @IBOutlet weak var lastRunningLable: UILabel!
     @IBOutlet weak var runningProgressLabel: UILabel!
     @IBOutlet weak var runningProgressImage: UIImageView!
     
-    var delegate: updateControl?
+    var delegate: TrainProgressDelegate?
     
-    let repository = Repository()
+    private let myBodyPresenter = MyBodyPresenter(repository: Repository())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,64 +47,42 @@ class MyBodyVC: UIViewController {
         self.setUpNagigationBar()
         self.title = Const.title
         
-        setUpBody()
-        
+        myBodyPresenter.setViewDelegate(myBodyViewDelegate: self)
         
     }
     
-    func setUpBody() {
-        let body = repository.getBody()
+    func setUpBody(weight: Int, height: Int, lastPlankTime: Int, plankProgress: Int, lastRunningDistance: Int, runningProgress: Int) {
+
+        updateBodyParameters(weight: weight, height: height)
         
-        weightLabel.text = "\(body.weight) kg"
-        heightLabel.text = "\(body.height) cm"
+        lastPlankLabel.text = "\(lastPlankTime) seconds"
         
-        lastPlankLabel.text = "\(body.plank!.curTime) seconds"
+        plankProgressLabel.text = "\(plankProgress)%"
         
-        var temp: Double
-        print("curTime: \(body.plank!.curTime); lastTime: \(body.plank!.lastTime)")
-        if body.plank!.lastTime != 0 {
-            temp = Double(body.plank!.curTime)/Double(body.plank!.lastTime)
-        } else {
-            temp = 1
-        }
-        var progress = Int(ceil(abs(100 - temp*100)))
-        
-        plankProgressLabel.text = "\(progress)%"
-        
-        if (temp < 1) {
+        if (plankProgress < 0) {
             plankProgressImage.image = UIImage(named: Const.downImageName)
         } else {
             plankProgressImage.image = UIImage(named: Const.upImageName)
         }
+
+        lastRunningLable.text = "\(lastRunningDistance) meters"
         
-        if body.running!.lastDistance != 0 {
-            temp = Double(body.running!.curDistance)/Double(body.running!.lastDistance)
-        } else {
-            temp = 1
-        }
+        runningProgressLabel.text = "\(runningProgress)%"
         
-        progress = Int(ceil(abs(100 - temp*100)))
-        
-        runningProgressLabel.text = "\(progress)%"
-        
-        if (temp < 1) {
+        if (runningProgress < 0) {
             runningProgressImage.image = UIImage(named: Const.downImageName)
         } else {
             runningProgressImage.image = UIImage(named: Const.upImageName)
         }
         
-        
     }
     
-    func updateBody() {
-        self.delegate?.updateBody()
+    func updateBodyParameters(weight: Int, height: Int) {
+        weightLabel.text = "\(weight) kg"
+        heightLabel.text = "\(height) cm"
         
-        let body = repository.getBody()
-        
-        weightLabel.text = "\(body.weight) kg"
-        heightLabel.text = "\(body.height) cm"
+        self.delegate?.updateBody(weight: weight, height: height)
     }
-
 
     @IBAction func editWeight(_ sender: Any) {
         let alert = UIAlertController(title: Const.weightAlertLabel, message: nil, preferredStyle: UIAlertController.Style.alert)
@@ -114,8 +94,8 @@ class MyBodyVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Change", style: .default, handler: { action in
             let textField = alert.textFields![0]
             let newWeight = Int(textField.text ?? "") ?? 0
-            self.repository.changeWeight(weight: newWeight)
-            self.updateBody()
+
+            self.myBodyPresenter.changeWeight(weight: newWeight)
         }))
         
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
@@ -135,18 +115,13 @@ class MyBodyVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Change", style: .default, handler: { action in
             let textField = alert.textFields![0]
             let newHeight = Int(textField.text ?? "") ?? 0
-            self.repository.changeHeight(height: newHeight)
-            self.updateBody()
+            self.myBodyPresenter.changeHeight(height: newHeight)
         }))
         
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
     }
-    
-    
-    
-    
     
     
 }

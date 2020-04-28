@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RunningVC" customModule="Lab3" customModuleProvider="target">
+            <connections>
+                <outlet property="distanceLabel" destination="b2S-zC-9gz" id="6G5-xs-M8U"/>
+                <outlet property="finishButton" destination="eXD-Jc-Zz3" id="89f-i3-O9F"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-MP-ugQ" customClass="CircleUIView" customModule="Lab3" customModuleProvider="target">
+                    <rect key="frame" x="99.5" y="144" width="215" height="215"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-zC-9gz">
+                            <rect key="frame" x="86" y="69" width="43" height="77"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="METERS LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6s-z6-8Qd">
+                            <rect key="frame" x="56" y="146" width="103" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="b2S-zC-9gz" firstAttribute="centerY" secondItem="JBS-MP-ugQ" secondAttribute="centerY" id="3Oz-b6-F4e"/>
+                        <constraint firstItem="w6s-z6-8Qd" firstAttribute="top" secondItem="b2S-zC-9gz" secondAttribute="bottom" id="BLx-BD-MNH"/>
+                        <constraint firstItem="w6s-z6-8Qd" firstAttribute="centerX" secondItem="JBS-MP-ugQ" secondAttribute="centerX" id="J9A-ev-klV"/>
+                        <constraint firstAttribute="width" constant="215" id="ZMU-yP-D5q"/>
+                        <constraint firstItem="b2S-zC-9gz" firstAttribute="centerX" secondItem="JBS-MP-ugQ" secondAttribute="centerX" id="dqp-vR-Hmb"/>
+                        <constraint firstAttribute="height" constant="215" id="eKA-Bw-TUe"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXD-Jc-Zz3" customClass="RoundedButton" customModule="Lab3" customModuleProvider="target">
+                    <rect key="frame" x="25" y="807" width="364" height="55"/>
+                    <color key="backgroundColor" red="0.70588235290000001" green="0.3803921569" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="mzJ-LW-SWy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <state key="normal" title="Finish">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="finish:" destination="-1" eventType="touchUpInside" id="vBc-Qi-uO7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JBS-MP-ugQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2h0-h6-BHR"/>
+                <constraint firstItem="eXD-Jc-Zz3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="9Vx-UE-CAl"/>
+                <constraint firstItem="JBS-MP-ugQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="LTS-rN-27Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eXD-Jc-Zz3" secondAttribute="trailing" constant="25" id="emL-hr-ywH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eXD-Jc-Zz3" secondAttribute="bottom" id="jFj-MH-gPB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

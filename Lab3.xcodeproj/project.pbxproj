@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7845C8C12457E0AE00EC89ED /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8BF2457E0AE00EC89ED /* RunningVC.swift */; };
+		7845C8C22457E0AE00EC89ED /* RunningVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7845C8C02457E0AE00EC89ED /* RunningVC.xib */; };
+		7845C8C42457E50100EC89ED /* PlankPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8C32457E50100EC89ED /* PlankPresenter.swift */; };
+		7845C8CA2457F36D00EC89ED /* TrainProgressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8C92457F36D00EC89ED /* TrainProgressPresenter.swift */; };
+		7845C8CC2457F6ED00EC89ED /* MyBodyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8CB2457F6ED00EC89ED /* MyBodyPresenter.swift */; };
+		7845C8CE2458037900EC89ED /* RunningPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8CD2458037900EC89ED /* RunningPresenter.swift */; };
+		7845C8D324582E5900EC89ED /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845C8D224582E5900EC89ED /* LocationService.swift */; };
 		78A6E8362456951300C60982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6E8352456951300C60982 /* AppDelegate.swift */; };
 		78A6E83D2456951600C60982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78A6E83C2456951600C60982 /* Assets.xcassets */; };
 		78A6E8492456975200C60982 /* TrainProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A6E8472456975200C60982 /* TrainProgressVC.swift */; };
@@ -29,6 +36,13 @@
 /* Begin PBXFileReference section */
 		46D5F572D4ED026AB310C1B8 /* Pods-Lab3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab3.debug.xcconfig"; path = "Target Support Files/Pods-Lab3/Pods-Lab3.debug.xcconfig"; sourceTree = "<group>"; };
 		6B1D963500B745B6CEAFDDD9 /* Pods-Lab3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lab3.release.xcconfig"; path = "Target Support Files/Pods-Lab3/Pods-Lab3.release.xcconfig"; sourceTree = "<group>"; };
+		7845C8BF2457E0AE00EC89ED /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
+		7845C8C02457E0AE00EC89ED /* RunningVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunningVC.xib; sourceTree = "<group>"; };
+		7845C8C32457E50100EC89ED /* PlankPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlankPresenter.swift; sourceTree = "<group>"; };
+		7845C8C92457F36D00EC89ED /* TrainProgressPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainProgressPresenter.swift; sourceTree = "<group>"; };
+		7845C8CB2457F6ED00EC89ED /* MyBodyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBodyPresenter.swift; sourceTree = "<group>"; };
+		7845C8CD2458037900EC89ED /* RunningPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningPresenter.swift; sourceTree = "<group>"; };
+		7845C8D224582E5900EC89ED /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		78A6E8322456951300C60982 /* Lab3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A6E8352456951300C60982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78A6E83C2456951600C60982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +85,54 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7845C8C52457EE9400EC89ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				78A6E8552456ACCA00C60982 /* UIExtensions.swift */,
+				78A6E85D2456D5AD00C60982 /* Repository.swift */,
+				7845C8D224582E5900EC89ED /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7845C8C62457EEA800EC89ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78A6E85B2456D02700C60982 /* DataBase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7845C8C72457EED600EC89ED /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7845C8C32457E50100EC89ED /* PlankPresenter.swift */,
+				7845C8C92457F36D00EC89ED /* TrainProgressPresenter.swift */,
+				7845C8CB2457F6ED00EC89ED /* MyBodyPresenter.swift */,
+				7845C8CD2458037900EC89ED /* RunningPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		7845C8C82457EEE200EC89ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78A6E8472456975200C60982 /* TrainProgressVC.swift */,
+				78A6E8482456975200C60982 /* TrainProgressVC.xib */,
+				78A6E8572456B9AD00C60982 /* MyBodyVC.swift */,
+				78A6E8582456B9AD00C60982 /* MyBodyVC.xib */,
+				78A6E85F2456F46F00C60982 /* PlankVC.swift */,
+				78A6E8602456F46F00C60982 /* PlankVC.xib */,
+				78A6E86324570CED00C60982 /* SuccessVC.swift */,
+				78A6E86424570CED00C60982 /* SuccessVC.xib */,
+				78A6E867245711F600C60982 /* FailureVC.swift */,
+				78A6E868245711F600C60982 /* FailureVC.xib */,
+				7845C8BF2457E0AE00EC89ED /* RunningVC.swift */,
+				7845C8C02457E0AE00EC89ED /* RunningVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		78A6E8292456951300C60982 = {
 			isa = PBXGroup;
 			children = (
@@ -92,23 +154,14 @@
 		78A6E8342456951300C60982 /* Lab3 */ = {
 			isa = PBXGroup;
 			children = (
+				7845C8C82457EEE200EC89ED /* View */,
+				7845C8C72457EED600EC89ED /* Presenter */,
+				7845C8C62457EEA800EC89ED /* Model */,
+				7845C8C52457EE9400EC89ED /* Services */,
 				78A6E8352456951300C60982 /* AppDelegate.swift */,
 				78A6E83C2456951600C60982 /* Assets.xcassets */,
 				78A6E8412456951600C60982 /* Info.plist */,
-				78A6E8472456975200C60982 /* TrainProgressVC.swift */,
-				78A6E8482456975200C60982 /* TrainProgressVC.xib */,
 				78A6E84B2456978F00C60982 /* LaunchScreen.xib */,
-				78A6E8552456ACCA00C60982 /* UIExtensions.swift */,
-				78A6E8572456B9AD00C60982 /* MyBodyVC.swift */,
-				78A6E8582456B9AD00C60982 /* MyBodyVC.xib */,
-				78A6E85B2456D02700C60982 /* DataBase.swift */,
-				78A6E85D2456D5AD00C60982 /* Repository.swift */,
-				78A6E85F2456F46F00C60982 /* PlankVC.swift */,
-				78A6E8602456F46F00C60982 /* PlankVC.xib */,
-				78A6E86324570CED00C60982 /* SuccessVC.swift */,
-				78A6E86424570CED00C60982 /* SuccessVC.xib */,
-				78A6E867245711F600C60982 /* FailureVC.swift */,
-				78A6E868245711F600C60982 /* FailureVC.xib */,
 			);
 			path = Lab3;
 			sourceTree = "<group>";
@@ -181,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7845C8C22457E0AE00EC89ED /* RunningVC.xib in Resources */,
 				78A6E84C2456978F00C60982 /* LaunchScreen.xib in Resources */,
 				78A6E84A2456975200C60982 /* TrainProgressVC.xib in Resources */,
 				78A6E8622456F46F00C60982 /* PlankVC.xib in Resources */,
@@ -241,9 +295,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				78A6E85C2456D02700C60982 /* DataBase.swift in Sources */,
+				7845C8C42457E50100EC89ED /* PlankPresenter.swift in Sources */,
+				7845C8CE2458037900EC89ED /* RunningPresenter.swift in Sources */,
 				78A6E8492456975200C60982 /* TrainProgressVC.swift in Sources */,
+				7845C8CC2457F6ED00EC89ED /* MyBodyPresenter.swift in Sources */,
+				7845C8C12457E0AE00EC89ED /* RunningVC.swift in Sources */,
 				78A6E8362456951300C60982 /* AppDelegate.swift in Sources */,
+				7845C8D324582E5900EC89ED /* LocationService.swift in Sources */,
 				78A6E8592456B9AD00C60982 /* MyBodyVC.swift in Sources */,
+				7845C8CA2457F36D00EC89ED /* TrainProgressPresenter.swift in Sources */,
 				78A6E86524570CED00C60982 /* SuccessVC.swift in Sources */,
 				78A6E8562456ACCA00C60982 /* UIExtensions.swift in Sources */,
 				78A6E8612456F46F00C60982 /* PlankVC.swift in Sources */,

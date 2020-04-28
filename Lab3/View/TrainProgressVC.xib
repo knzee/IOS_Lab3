@@ -26,19 +26,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trainHeader" translatesAutoresizingMaskIntoConstraints="NO" id="Ra4-HA-iZP">
-                    <rect key="frame" x="0.0" y="44" width="414" height="168"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="168"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="168" id="OSq-Ck-CPP"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SuperFit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adt-9P-xr4">
-                    <rect key="frame" x="136" y="106" width="143" height="43"/>
+                    <rect key="frame" x="136" y="60" width="143" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8to-za-6bz" customClass="RoundedUIView" customModule="Lab3" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="172" width="414" height="690"/>
+                    <rect key="frame" x="0.0" y="138" width="414" height="724"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHX-QN-mbk">
                             <rect key="frame" x="16" y="40" width="71" height="21"/>
@@ -251,10 +251,10 @@
                 <constraint firstItem="8to-za-6bz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1uC-kX-BnW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8to-za-6bz" secondAttribute="trailing" id="5bL-1A-pLL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8to-za-6bz" secondAttribute="bottom" id="IWn-RK-LfQ"/>
-                <constraint firstItem="Ra4-HA-iZP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Rhi-6n-B5I"/>
-                <constraint firstItem="8to-za-6bz" firstAttribute="top" secondItem="Ra4-HA-iZP" secondAttribute="bottom" constant="-40" id="bTr-R8-Kqo"/>
+                <constraint firstItem="Ra4-HA-iZP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rhi-6n-B5I"/>
+                <constraint firstItem="8to-za-6bz" firstAttribute="top" secondItem="Ra4-HA-iZP" secondAttribute="bottom" constant="-30" id="bTr-R8-Kqo"/>
                 <constraint firstItem="Ra4-HA-iZP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="deI-dh-Tit"/>
-                <constraint firstItem="adt-9P-xr4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="62" id="kmc-bX-1ob"/>
+                <constraint firstItem="adt-9P-xr4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="kmc-bX-1ob"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="adt-9P-xr4" secondAttribute="trailing" constant="135" id="kzn-Lh-ztF"/>
                 <constraint firstItem="adt-9P-xr4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="136" id="ndD-wO-YA5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ra4-HA-iZP" secondAttribute="trailing" id="wR2-bx-LKi"/>

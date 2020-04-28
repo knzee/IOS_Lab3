@@ -14,13 +14,9 @@ class Repository {
     var realm: Realm
     
     let config = Realm.Configuration(
-        schemaVersion: 3,
+        schemaVersion: 4,
         migrationBlock: { migration, oldSchemaVersion in
             if (oldSchemaVersion < 2) {
-                /*let r = try! Realm()
-                try! r.write {
-                    r.deleteAll()
-                }*/
             }
             
     })
@@ -40,6 +36,7 @@ class Repository {
             let running = Running()
             running.curDistance = 0
             running.lastDistance = 0
+            running.max = 100
             
             let plank = Plank()
             plank.curTime = 20
@@ -68,8 +65,6 @@ class Repository {
     func getPlankTime() -> Int {
         let plank = getBody().plank
         
-        print("c: \(plank!.curTime); l: \(plank!.lastTime); m: \(plank!.max)")
-        
         if plank!.curTime == plank!.max {
             return plank!.max + 5
         }
@@ -77,19 +72,46 @@ class Repository {
         
     }
     
-    func sumbitPlankResults(time: Int, completed: Bool) {
+    func getRunningDistance() -> Int {
+        let running = getBody().running
+        
+        if running!.curDistance == running!.max {
+            return running!.max + 5
+        }
+        return running!.max
+    }
+    
+    func submitPlankResults(time: Int, completed: Bool) {
         let plank = realm.objects(Body.self).first!.plank
         
         if completed {
             try! realm.write {
                 plank!.lastTime = plank!.curTime
-                plank!.max = time + 5
+                plank!.max = time + 20
                 plank!.curTime = time
             }
         } else {
             try! realm.write {
                 plank!.lastTime = plank!.curTime
                 plank!.curTime = time
+            }
+        }
+        
+    }
+    
+    func submitRunningResults(distance: Int, completed: Bool) {
+        let running = realm.objects(Body.self).first!.running
+        
+        if completed {
+            try! realm.write {
+                running!.lastDistance = running!.curDistance
+                running!.max = distance + 20
+                running!.curDistance = distance
+            }
+        } else {
+            try! realm.write {
+                running!.lastDistance = running!.curDistance
+                running!.curDistance = distance
             }
         }
         

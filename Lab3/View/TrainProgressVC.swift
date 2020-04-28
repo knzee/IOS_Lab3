@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol updateControl {
-    func updateBody()
+protocol TrainProgressDelegate: NSObjectProtocol {
+    func updateBody(weight: Int, height: Int)
 }
 
-class TrainProgressVC: UIViewController, updateControl {
+class TrainProgressVC: UIViewController, TrainProgressDelegate {
     
     private enum Const {
         static let title = " "
@@ -26,7 +26,7 @@ class TrainProgressVC: UIViewController, updateControl {
     
     @IBOutlet weak var detailsButton: UIButton!
 
-    let repository = Repository()
+    private let trainProgressPresenter = TrainProgressPresenter(repository: Repository())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,9 @@ class TrainProgressVC: UIViewController, updateControl {
         self.setUpNagigationBar()
         self.title = Const.title
         
-        updateBody()
-        
         setUpButtons()
+        
+        trainProgressPresenter.setViewDelegate(trainProgressViewDelegate: self)
     }
     
     @IBAction func openDetails(_ sender: Any) {
@@ -55,19 +55,17 @@ class TrainProgressVC: UIViewController, updateControl {
     
     @objc func startPlank() {
         let plankVC = PlankVC()
-        //plankVC.delegate = self
         self.navigationController?.pushViewController(plankVC, animated: true)
     }
     
     @objc func startRunning() {
-        
+        let runningVC = RunningVC()
+        self.navigationController?.pushViewController(runningVC, animated: true)
     }
     
-    func updateBody() {
-        let body = repository.getBody()
-        
-        weightLabel.text = "\(body.weight) kg"
-        heightLabel.text = "\(body.height) cm"
+    func updateBody(weight: Int, height: Int) {
+        weightLabel.text = "\(weight) kg"
+        heightLabel.text = "\(height) cm"
     }
 }
 
